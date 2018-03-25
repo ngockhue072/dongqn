@@ -78,7 +78,7 @@ service xl2tpd restart
 ipsec up myvpn
 sleep 5s
 echo "c myvpn" > /var/run/xl2tpd/l2tp-control
-sleep 5s
+sleep 4s
 IP=$(/sbin/ip route | awk '/default/ { print $3 }')
 route add 128.199.64.79 gw $IP
 route add 1.54.18.103 gw $IP
