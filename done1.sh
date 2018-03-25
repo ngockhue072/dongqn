@@ -75,7 +75,7 @@ mkdir -p /var/run/xl2tpd
 touch /var/run/xl2tpd/l2tp-control
 service strongswan restart
 service xl2tpd restart
-sleep 20s
+sleeep 20s
 ipsec up myvpn
 sleep 20s
 echo "c myvpn" > /var/run/xl2tpd/l2tp-control
