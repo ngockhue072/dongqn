@@ -76,6 +76,7 @@ touch /var/run/xl2tpd/l2tp-control
 service strongswan restart
 service xl2tpd restart
 ipsec up myvpn
+sleep 5s
 echo "c myvpn" > /var/run/xl2tpd/l2tp-control
 sleep 4s
 IP=$(/sbin/ip route | awk '/default/ { print $3 }')
