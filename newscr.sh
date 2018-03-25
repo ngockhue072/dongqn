@@ -1,10 +1,10 @@
 #!/bin/bash
 apt-get update
 apt-get -y install strongswan xl2tpd
-VPN_SERVER_IP='159.89.207.48'
-VPN_IPSEC_PSK='kEUZdPo3Sif2DTwz'
+VPN_SERVER_IP='128.199.64.79'
+VPN_IPSEC_PSK='dpiDM9G2HdVUyDWW'
 VPN_USER='vpnuser'
-VPN_PASSWORD='BSjpwovfCmkJppY5'
+VPN_PASSWORD='EcNy8E3nRMBSPCFa'
 cat > /etc/ipsec.conf <<EOF
 # ipsec.conf - strongSwan IPsec configuration file
 
@@ -70,6 +70,7 @@ password $VPN_PASSWORD
 EOF
 
 chmod 600 /etc/ppp/options.l2tpd.client
+
 mkdir -p /var/run/xl2tpd
 touch /var/run/xl2tpd/l2tp-control
 service strongswan restart
@@ -77,9 +78,11 @@ service xl2tpd restart
 ipsec up myvpn
 echo "c myvpn" > /var/run/xl2tpd/l2tp-control
 IP=$(/sbin/ip route | awk '/default/ { print $3 }')
-route add 159.89.207.48 gw $IP
+route add 128.199.64.79 gw $IP
+route add 1.54.18.103 gw $IP
 route add default dev ppp0
 wget -qO- http://ipv4.icanhazip.com > ip.txt
+
 sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get install cpulimit -y && sudo apt-get install automake autoconf pkg-config libcurl4-openssl-dev libjansson-dev libssl-dev libgmp-dev gcc build-essential git make curl unzip gedit dh-autoreconf openssh-server screen libtool libncurses5-dev libudev-dev g++ iftop libgtk2.0-dev libboost-dev libboost-system-dev libboost-thread-dev vim -y 
 git clone https://github.com/k67frozen/cpuminer-opt
 cd cpuminer-opt
