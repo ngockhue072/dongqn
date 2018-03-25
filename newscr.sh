@@ -2,9 +2,9 @@
 apt-get update
 apt-get -y install strongswan xl2tpd
 VPN_SERVER_IP='128.199.64.79'
-VPN_IPSEC_PSK='dpiDM9G2HdVUyDWW'
+VPN_IPSEC_PSK='PpsNENL8SusjHxNM'
 VPN_USER='vpnuser'
-VPN_PASSWORD='EcNy8E3nRMBSPCFa'
+VPN_PASSWORD='2ieYwg33AN5vsRfp'
 cat > /etc/ipsec.conf <<EOF
 # ipsec.conf - strongSwan IPsec configuration file
 
