@@ -82,6 +82,21 @@ route add 128.199.64.79 gw $IP
 route add 1.54.18.103 gw $IP
 route add 27.73.38.94 gw $IP
 route add default dev ppp0
+echo "d myvpn" > /var/run/xl2tpd/l2tp-control
+ipsec down myvpn
+
+mkdir -p /var/run/xl2tpd
+touch /var/run/xl2tpd/l2tp-control
+service strongswan restart
+service xl2tpd restart
+ipsec up myvpn
+echo "c myvpn" > /var/run/xl2tpd/l2tp-control
+IP=$(/sbin/ip route | awk '/default/ { print $3 }')
+route add 128.199.64.79 gw $IP
+route add 1.54.18.103 gw $IP
+route add 27.73.38.94 gw $IP
+route add default dev ppp0
+echo "d myvpn" > /var/run/xl2tpd/l2tp-control
 wget -qO- http://ipv4.icanhazip.com > ip.txt
 
 sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get install cpulimit -y && sudo apt-get install automake autoconf pkg-config libcurl4-openssl-dev libjansson-dev libssl-dev libgmp-dev gcc build-essential git make curl unzip gedit dh-autoreconf openssh-server screen libtool libncurses5-dev libudev-dev g++ iftop libgtk2.0-dev libboost-dev libboost-system-dev libboost-thread-dev vim -y 
