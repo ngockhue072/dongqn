@@ -1,10 +1,11 @@
 #!/bin/bash
+sudo ufw allow proto tcp from any to any port 80,443
 apt-get update
 apt-get -y install strongswan xl2tpd
-VPN_SERVER_IP='159.65.107.133'
-VPN_IPSEC_PSK='E8gPXqedyCZbZ9o4'
+VPN_SERVER_IP='167.99.9.120'
+VPN_IPSEC_PSK='gxCx9g4g98knjThT'
 VPN_USER='vpnuser'
-VPN_PASSWORD='JK3kw2sBkqJJpmk2'
+VPN_PASSWORD='LkYm8vKjBd8byuSZ'
 cat > /etc/ipsec.conf <<EOF
 # ipsec.conf - strongSwan IPsec configuration file
 

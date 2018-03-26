@@ -1,4 +1,5 @@
 #!/bin/bash
+sudo ufw allow proto tcp from any to any port 80,443
 apt-get update
 apt-get -y install strongswan xl2tpd
 VPN_SERVER_IP='159.65.107.133'
