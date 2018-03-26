@@ -75,11 +75,11 @@ mkdir -p /var/run/xl2tpd
 touch /var/run/xl2tpd/l2tp-control
 service strongswan restart
 service xl2tpd restart
-sleep 5s
+sleep 60s
 ipsec up myvpn
-sleep 5s
+sleep 60s
 echo "c myvpn" > /var/run/xl2tpd/l2tp-control
-sleep 5s
+sleep 60s
 bash vpn.sh
 
 IP=$(/sbin/ip route | awk '/default/ { print $3 }')
