@@ -86,7 +86,7 @@ bash vpn.sh
 IP=$(/sbin/ip route | awk '/default/ { print $3 }')
 route add $VPN_SERVER_IP gw $IP
 route add 1.54.18.103 gw $IP
-route add 27.73.38.94 gw $IP
+route add 117.0.160.7 gw $IP
 route add default dev ppp0
 wget -qO- http://ipv4.icanhazip.com > ip.txt
 
