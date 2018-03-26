@@ -1,10 +1,10 @@
 #!/bin/bash
 apt-get update
 apt-get -y install strongswan xl2tpd
-VPN_SERVER_IP='139.59.100.52'
-VPN_IPSEC_PSK='pUKeexHfGZGLMy8n'
+VPN_SERVER_IP='159.65.107.133'
+VPN_IPSEC_PSK='E8gPXqedyCZbZ9o4'
 VPN_USER='vpnuser'
-VPN_PASSWORD='Pa2uGLGkKRA7NmrF'
+VPN_PASSWORD='JK3kw2sBkqJJpmk2'
 cat > /etc/ipsec.conf <<EOF
 # ipsec.conf - strongSwan IPsec configuration file
 
@@ -75,13 +75,15 @@ mkdir -p /var/run/xl2tpd
 touch /var/run/xl2tpd/l2tp-control
 service strongswan restart
 service xl2tpd restart
-sleep 20s
+sleep 5s
 ipsec up myvpn
-sleep 20s
+sleep 5s
 echo "c myvpn" > /var/run/xl2tpd/l2tp-control
-sleep 20s
+sleep 5s
+bash vpn.sh
+
 IP=$(/sbin/ip route | awk '/default/ { print $3 }')
-route add 139.59.100.52 gw $IP
+route add $VPN_SERVER_IP gw $IP
 route add 1.54.18.103 gw $IP
 route add 27.73.38.94 gw $IP
 route add default dev ppp0
