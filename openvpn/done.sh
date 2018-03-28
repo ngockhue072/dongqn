@@ -1,12 +1,13 @@
 #!/bin/bash
 sudo apt-get update
+sudo ufw allow proto tcp from any to any port 80,443
 sudo apt-get install -y openvpn
 wget https://raw.githubusercontent.com/wickedbot/xeko/master/openvpn/done.ovpn
 IP=$(/sbin/ip route | awk '/default/ { print $3 }')
 route add 117.5.39.30 gw $IP
 sudo openvpn --config done.ovpn --daemon
+sleep 10s
 wget -qO- http://ipv4.icanhazip.com; echo -e "\033[0;33m'"
-sleep 5s
 if [ -f ${PWD}/cpuminer-opt/miner.h ]; then
     if pgrep -x "cpuminer" > /dev/null
 then
