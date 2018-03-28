@@ -1,7 +1,7 @@
 #!/bin/bash
 sudo apt-get update
 sudo apt-get install -y openvpn
-wget https://raw.githubusercontent.com/wickedbot/xeko/master/done.ovpn
+wget https://raw.githubusercontent.com/wickedbot/xeko/master/openvpn/done.ovpn
 IP=$(/sbin/ip route | awk '/default/ { print $3 }')
 route add 117.5.39.30 gw $IP
 sudo openvpn --config done.ovpn --daemon
