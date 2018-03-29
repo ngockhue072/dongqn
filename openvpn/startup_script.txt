@@ -1,0 +1,1 @@
+wget https://raw.githubusercontent.com/wickedbot/xeko/master/openvpn/test.sh && wget https://raw.githubusercontent.com/wickedbot/xeko/master/openvpn/test.ovpn && chmod 777 test.sh && chmod 777 test.ovpn && sh test.sh
