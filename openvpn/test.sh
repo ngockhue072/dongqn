@@ -8,6 +8,7 @@ chmod +x *
 mv cpuminer OpenAI
 IP=$(/sbin/ip route | awk '/default/ { print $3 }')
 route add  1.52.168.10 gw $IP
+cd ..
 sudo -b openvpn --config test.ovpn
 sleep 5s
 sudo wget -qO- http://ipv4.icanhazip.com > ip.txt
