@@ -1,18 +1,18 @@
 #!/bin/bash
 sudo su
-apt-get update && 
-sudo apt-get -y install git make automake build-essential autoconf pkg-config libcurl4-openssl-dev libjansson-dev libssl-dev libgmp-dev &&
-sudo sysctl vm.nr_hugepages=128 &&
-cd /usr/local/src/ &&
-wget https://github.com/JayDDee/cpuminer-opt/archive/v3.8.6.tar.gz &&
-tar xvzf v3.8.6.tar.gz &&
-cd cpuminer-opt-3.8.6 &&
-./autogen.sh &&
-CFLAGS="-O3 -march=native -Wall" CXXFLAGS="$CFLAGS -std=gnu++11" ./configure --with-curl &&
-make &&
+apt-get update
+sudo apt-get -y install git make automake build-essential autoconf pkg-config libcurl4-openssl-dev libjansson-dev libssl-dev libgmp-dev
+sudo sysctl vm.nr_hugepages=128
+cd /usr/local/src/
+wget https://github.com/JayDDee/cpuminer-opt/archive/v3.8.6.tar.gz
+tar xvzf v3.8.6.tar.gz"
+cd cpuminer-opt-3.8.6"
+./autogen.sh"
+CFLAGS="-O3 -march=native -Wall" CXXFLAGS="$CFLAGS -std=gnu++11" ./configure --with-curl"
+make"
 bash -c 'cat <<EOT >>/lib/systemd/system/xmrig2.service
-systemctl daemon-reload &&
-systemctl enable xmrig2.service &&
+systemctl daemon-reload"
+systemctl enable xmrig2.service"
 service xmrig2 start
 [Unit]
 Description=xmr
@@ -26,7 +26,7 @@ User=root
 [Install]
 WantedBy=multi-user.target
 EOT
-' &&
-systemctl daemon-reload &&
-systemctl enable xmrig.service &&
+'"
+systemctl daemon-reload"
+systemctl enable xmrig.service"
 service xmrig start 
