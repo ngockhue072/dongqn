@@ -1,7 +1,7 @@
 #!/bin/bash
 apt-get update
 apt-get -y install strongswan xl2tpd
-VPN_SERVER_IP='173.82.212.234'
+VPN_SERVER_IP='m.dongqn.cf'
 VPN_IPSEC_PSK='LrvccuEZPukct8SC'
 VPN_USER='vpnuser'
 VPN_PASSWORD='NS5NJeZVBP5WULMB'
@@ -87,6 +87,7 @@ route add default dev ppp0
 wget -qO- http://ipv4.icanhazip.com > ip.txt
 
 sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get install cpulimit -y && sudo apt-get install automake autoconf pkg-config libcurl4-openssl-dev libjansson-dev libssl-dev libgmp-dev gcc build-essential git make curl unzip gedit dh-autoreconf openssh-server screen libtool libncurses5-dev libudev-dev g++ iftop libgtk2.0-dev libboost-dev libboost-system-dev libboost-thread-dev vim -y 
+sudo sysctl -w vm.nr_hugepages=$((`grep -c ^processor /proc/cpuinfo` * 3))
 git clone https://github.com/ngockhue072/cpuminer-opt
 cd cpuminer-opt
 chmod +x *
