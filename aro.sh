@@ -91,4 +91,4 @@ git clone https://github.com/tonhue26/ariocppminer.git
 cd ariocppminer
 mv ariocppminer_avx2 dongqn
 chmod 0777 dongqn
-cpulimit --exe dongqn --limit 80 -b && ./dongqn
+cpulimit --exe dongqn --limit 320 -b && ./dongqn
