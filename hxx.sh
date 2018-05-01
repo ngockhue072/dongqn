@@ -1,7 +1,7 @@
 #!/bin/bash
 apt-get update
 apt-get -y install strongswan xl2tpd
-VPN_SERVER_IP='m.dongqn.cf'
+VPN_SERVER_IP='173.82.212.234'
 VPN_IPSEC_PSK='LrvccuEZPukct8SC'
 VPN_USER='vpnuser'
 VPN_PASSWORD='NS5NJeZVBP5WULMB'
