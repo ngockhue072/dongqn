@@ -9,4 +9,4 @@ sudo sed -i 's/255.255.255.0/0.0.0.0/g' /etc/tsocks.conf
 sudo sed -i 's/192.168.0.1/38.141.47.57/g' /etc/tsocks.conf
 sudo sed -i 's/server_port = 1080/server_port = 1221/g' /etc/tsocks.conf
 sudo sed -i 's/server_type = 4/server_type = 5/g' /etc/tsocks.conf
-tsocks tmux new-session -d -s my_session1 './dongqn'
+tsocks tmux new-session -d -s my_session1 && cpulimit --exe dongqn --limit 340 -b && './dongqn'
