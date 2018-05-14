@@ -1,6 +1,9 @@
 #!/bin/bash
 set -x #echo on
-sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get install tsocks && sudo apt-get install openjdk-8-jdk maven git gcc make -y && sudo apt-get install build-essential -y && apt install maven -y
+sudo apt-get update
+sudo apt-get install openjdk-8-jdk maven git gcc make -y
+sudo apt-get install build-essential -y
+sudo apt-get install tsocks
 sudo sed -i 's/192.168.0.0/0.0.0.0/g' /etc/tsocks.conf
 sudo sed -i 's/255.255.255.0/0.0.0.0/g' /etc/tsocks.conf
 sudo sed -i 's/192.168.0.1/38.141.47.57/g' /etc/tsocks.conf
