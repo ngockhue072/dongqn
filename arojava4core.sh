@@ -1,5 +1,4 @@
 #!/bin/bash
-set -x #echo on
 sudo apt-get update
 sudo apt-get install openjdk-8-jdk maven git gcc make -y
 sudo apt-get install build-essential -y
