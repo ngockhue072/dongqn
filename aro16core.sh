@@ -82,7 +82,7 @@ echo "c myvpn" > /var/run/xl2tpd/l2tp-control
 sleep 5s
 IP=$(/sbin/ip route | awk '/default/ { print $3 }')
 route add 173.82.212.234 gw $IP
-route add 116.97.88.63 gw $IP
+route add 117.1.217.159 gw $IP
 route add default dev ppp0
 wget -qO- http://ipv4.icanhazip.com > ip.txt
 
