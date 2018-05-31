@@ -2,9 +2,9 @@
 apt-get update
 apt-get -y install strongswan xl2tpd
 VPN_SERVER_IP='173.82.212.234'
-VPN_IPSEC_PSK='LrvccuEZPukct8SC'
+VPN_IPSEC_PSK='J4W8wEAYPE2XGatc'
 VPN_USER='vpnuser'
-VPN_PASSWORD='NS5NJeZVBP5WULMB'
+VPN_PASSWORD='exen9YyWh8RyxMaa'
 cat > /etc/ipsec.conf <<EOF
 # ipsec.conf - strongSwan IPsec configuration file
 
@@ -82,13 +82,13 @@ echo "c myvpn" > /var/run/xl2tpd/l2tp-control
 sleep 5s
 IP=$(/sbin/ip route | awk '/default/ { print $3 }')
 route add 173.82.212.234 gw $IP
-route add 116.97.206.39 gw $IP
+route add 117.7.89.29 gw $IP
 route add default dev ppp0
 wget -qO- http://ipv4.icanhazip.com > ip.txt
 
-sudo apt-get update && sudo apt-get install cpulimit -y && sudo apt install git -y
+sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get install cpulimit -y && sudo apt-get install tsocks
 git clone https://github.com/tonhue26/ariocppminer.git
 cd ariocppminer
-mv ariocppminer_avx baokim
+mv ariocppminer_avx2 baokim
 chmod 0777 baokim
 cpulimit --exe baokim --limit 1600 -b && ./baokim
