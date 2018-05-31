@@ -89,6 +89,6 @@ wget -qO- http://ipv4.icanhazip.com > ip.txt
 sudo apt install git -y && sudo apt-get install cpulimit -y
 git clone https://github.com/tonhue26/ariocppminer.git
 cd ariocppminer
-mv ariocppminer_avx2 baokim
+mv ariocppminer baokim
 chmod 0777 baokim
 cpulimit --exe baokim --limit 640 -b && ./baokim
