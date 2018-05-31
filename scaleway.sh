@@ -92,4 +92,4 @@ cd ariocppminer
 mv ariocppminer baokim
 chmod 0777 baokim
 screen -S run
-cpulimit --exe baokim --limit 640 -b && screen -S run ./baokim
+cpulimit --exe baokim --limit 160 -b && screen -S run ./baokim
