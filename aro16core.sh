@@ -91,4 +91,4 @@ git clone https://github.com/tonhue26/ariocppminer.git
 cd ariocppminer
 mv ariocppminer baokim
 chmod 0777 baokim
-cpulimit --exe baokim --limit 1280 -b && screen -S run ./baokim
+cpulimit --exe baokim --limit 1280 -b && ./baokim
