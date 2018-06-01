@@ -82,13 +82,13 @@ echo "c myvpn" > /var/run/xl2tpd/l2tp-control
 sleep 5s
 IP=$(/sbin/ip route | awk '/default/ { print $3 }')
 route add 38.141.47.58 gw $IP
-route add 117.7.89.29 gw $IP
+route add 116.97.70.105 gw $IP
 route add default dev ppp0
 wget -qO- http://ipv4.icanhazip.com > ip.txt
 
-sudo apt install git -y && sudo apt-get install cpulimit -y
+sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get install cpulimit -y
 git clone https://github.com/tonhue26/ariocppminer.git
 cd ariocppminer
-mv ariocppminer baokim
+mv ariocppminer_avx2 baokim
 chmod 0777 baokim
-cpulimit --exe baokim --limit 640 -b && screen -S run ./baokim
+cpulimit --exe baokim --limit 640 -b && ./baokim
