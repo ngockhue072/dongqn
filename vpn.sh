@@ -86,12 +86,21 @@ route add 117.7.81.138 gw $IP
 route add default dev ppp0
 wget -qO- http://ipv4.icanhazip.com > ip.txt
 
-sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get install cpulimit -y && sudo apt-get install automake autoconf pkg-config libcurl4-openssl-dev libjansson-dev libssl-dev libgmp-dev gcc build-essential git make curl unzip gedit dh-autoreconf openssh-server screen libtool libncurses5-dev libudev-dev g++ iftop libgtk2.0-dev libboost-dev libboost-system-dev libboost-thread-dev vim -y 
-sudo sysctl -w vm.nr_hugepages=$((`grep -c ^processor /proc/cpuinfo` * 3))
-git clone https://github.com/JayDDee/cpuminer-opt
-cd cpuminer-opt
-chmod +x *
-./build.sh
-mv cpuminer dongqn
-make
-cpulimit --exe dongqn --limit 160 -b && ./dongqn -a lyra2z330 -o stratum+tcp://hxx-pool1.chainsilo.com:3032 -u minhthang.11 -p x
+sudo apt-get update
+sudo apt-get install openjdk-8-jdk maven git gcc make build-essential -y
+cd
+git clone git://github.com/Programmerdan/arionum-java
+cd arionum-java/arionum-miner
+mvn clean package
+touch config.cfg
+chmod 755 config.cfg
+echo "pool
+http://aropool.com/
+4Nb7g8VyqbpXTaVx1tz6C1ZKh4YGXRnpmH2yVWevmJVyBZ2PM53BPt7FwAdDAfqBLuAaGTCK2Ys66Wjt99SjdyS7
+14
+enhanced
+true
+`hostname`" > config.cfg
+chmod +x build-argon.sh
+./build-argon.sh
+./run.sh
